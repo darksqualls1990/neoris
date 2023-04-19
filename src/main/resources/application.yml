@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /v1/
+neori:
+  title: "Neori"
+  version: 1
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/neoris
+    username: postgres
+    password: admin
+  jpa:
+    show-sql: true
