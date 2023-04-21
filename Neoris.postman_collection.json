@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "8d3edc11-0b95-4efa-b685-e8dd48eb2336",
+		"name": "Neoris",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "save account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":null,\r\n  \"accountNumber\": \"225487\",\r\n  \"accountType\": \"Corriente\",\r\n  \"initialBalance\":100,\r\n  \"client\":{\r\n      \"id\": 1\r\n  }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\":1,\r\n  \"password\": \"5678\",\r\n  \"status\": true,\r\n  \"person\":{\r\n      \"name\": \"Marianela Montalvo\",\r\n      \"gender\": null,\r\n      \"identification\": null,\r\n      \"phone\": \"097548965\",\r\n      \"address\": \"Amazonas y NNUU\"\r\n  }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAccount",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/account/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"account",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "movement",
+			"item": [
+				{
+					"name": "createMovement",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"movementType\": \"DEBIT\",\r\n  \"value\": 576,\r\n  \"account\":{\r\n      \"id\": 5\r\n  }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/movement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"movement"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "report",
+			"item": [
+				{
+					"name": "report accountStatus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/report?dateInit=04-10-2023&dateEnd=04-21-2023&name=Jose lema",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"report"
+							],
+							"query": [
+								{
+									"key": "dateInit",
+									"value": "04-10-2023"
+								},
+								{
+									"key": "dateEnd",
+									"value": "04-21-2023"
+								},
+								{
+									"key": "name",
+									"value": "Jose lema"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get Clients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\":null,\r\n  \"password\": \"5678\",\r\n  \"status\": true,\r\n  \"person\":{\r\n      \"name\": \"Marianela Montalvo\",\r\n      \"gender\": null,\r\n      \"identification\": null,\r\n      \"phone\": \"097548965\",\r\n      \"address\": \"Amazonas y NNUU\"\r\n  }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/client",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"client"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

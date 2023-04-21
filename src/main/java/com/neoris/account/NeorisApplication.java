@@ -1,9 +1,14 @@
 package com.neoris.account;
 
 
+import com.neoris.account.infrastructure.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+@CrossOrigin(origins ="*")
+@Import( value= {AppConfig.class} )
 @SpringBootApplication
 public class NeorisApplication {
 	

@@ -4,3 +4,5 @@
 /.idea/workspace.xml
 /target/classes/application.yml
 /target/classes/com/neoris/account/NeorisApplication.class
+/target/neoris-1.0-SNAPSHOT.jar
+/target/neoris-1.0-SNAPSHOT.jar.original
