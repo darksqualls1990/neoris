@@ -4,6 +4,7 @@ import com.neoris.account.domain.model.account.Account;
 import com.neoris.account.domain.model.client.Client;
 import com.neoris.account.domain.model.exception.FailException;
 import com.neoris.account.domain.usecase.account.AccountUseCase;
+import com.neoris.account.domain.usecase.log.LogUseCase;
 import com.neoris.account.infrastructure.util.ResponseEntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,9 @@ public class AccountApiRest {
     @Autowired
     private AccountUseCase accountUseCase;
 
+    @Autowired
+    private LogUseCase logUseCase;
+
     @PostMapping()
     public ResponseEntity<Object> saveAccount(@Valid @ RequestBody Account account, BindingResult result) {
         ResponseEntity<Object> responseEntity;
@@ -35,7 +39,7 @@ public class AccountApiRest {
             try {
                 responseEntity=ResponseEntity.ok(success("account", accountUseCase.create(account)));
             } catch (FailException e) {
-               return exceptionResponse(e);
+               return exceptionResponse(e,logUseCase);
             }
         }
         return responseEntity;
@@ -58,7 +62,7 @@ public class AccountApiRest {
         try{
             return ResponseEntity.ok(accountUseCase.delete(id) ? success("Cuenta eliminada") :fail("Error al eliminar la cuenta"));
         }catch (FailException e){
-            return exceptionResponse(e);
+            return exceptionResponse(e,logUseCase);
         }
     }
 }

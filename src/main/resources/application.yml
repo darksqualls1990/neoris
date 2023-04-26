@@ -7,9 +7,19 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:postgresql://dbpostgresql:5432/neoribd
-    username: admin
-    password: postgres
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password: admin
+        url: jdbc:postgresql://dbpostgresql:5432/neoribd
+        username: admin
+        password: postgres
   jpa:
-    hibernate:
-      ddl-auto: create
+    properties:
+      hibernate:
+        ddl-auto: create
+#        show-sql: true
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+

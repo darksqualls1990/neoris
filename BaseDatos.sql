@@ -65,3 +65,13 @@ CREATE TABLE public.movimiento (
 -- public.movimiento foreign keys
 
 ALTER TABLE public.movimiento ADD CONSTRAINT movimiento_cuenta_id_fkey FOREIGN KEY (cuenta_id) REFERENCES public.cuenta(id);
+
+
+CREATE TABLE logs (
+	id_log_error bigserial NOT NULL,
+	message varchar(250)  NULL,
+	creation_date timestamp NOT NULL,
+	creation_user varchar(50) NULL,
+	body_error text NULL,
+	observation text NULL
+);

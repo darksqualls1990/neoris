@@ -1,5 +1,6 @@
 package com.neoris.account.infrastructure.driven_adapters.jpa_repository.report.account_status;
 
+import org.springframework.data.annotation.ReadOnlyProperty;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -10,6 +11,7 @@ import java.util.List;
 
 public interface AccountStatusCrudRepository extends CrudRepository<AccountStatusEntity, String>, QueryByExampleExecutor<AccountStatusEntity> {
 
+    @ReadOnlyProperty
     @Query(value = "SELECT " +
             " row_number() over() id," +
             "    Date(m.fecha)  datem," +

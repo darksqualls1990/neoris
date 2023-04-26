@@ -5,6 +5,7 @@ import com.neoris.account.domain.model.client.gateways.ClientRepository;
 import com.neoris.account.domain.usecase.person.PersonUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -21,6 +22,7 @@ public class ClientUseCase {
         return clientRepository.finAll();
     }
 
+    @Transactional
     public Client create(Client client){
         client.setClientId(UUID.randomUUID().toString());
         client.setPerson(personUseCase.create(client.getPerson()));

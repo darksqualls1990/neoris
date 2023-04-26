@@ -5,6 +5,7 @@ import com.neoris.account.domain.model.account.gateways.AccountRepository;
 import com.neoris.account.infrastructure.helper.AdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Repository
